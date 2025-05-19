@@ -1,24 +1,67 @@
-Machine Learning Repository
-Welcome to the "Machine Learning" repository on GitHub! This repository is dedicated to sharing projects and learning materials centered around the exciting field of machine learning.
+# PCOS Detection Using Machine Learning
 
-Contents
-This repository hosts a variety of content, including:
+This project explores the application of various machine learning models to detect Polycystic Ovary Syndrome (PCOS) using laboratory blood test data.
 
-Machine learning projects showcasing real-world applications.
-Tutorials and guides covering fundamental concepts and advanced techniques.
-Datasets and code examples for hands-on practice.
-Resources for further learning and exploration.
-Getting Started
-To get the most out of this repository, consider following these steps:
+## 📌 Project Objectives
 
-Browse the "Projects" directory to explore completed machine learning projects.
-Check out the "Tutorials" section for educational guides on machine learning topics.
-Utilize the provided datasets and code examples in the "Code" directory for hands-on practice.
-Visit the "Resources" section for recommended books, online courses, and other learning materials.
-Contributing
-Contributions to this repository are welcome! If you'd like to contribute a project, tutorial, or additional resources, please fork the repository, create a new branch, make your changes, and submit a pull request.
+- Analyze PCOS-related lab test data.
+- Preprocess data: handle missing values, standardize features, encode categorical variables.
+- Extract key features that significantly impact PCOS diagnosis.
+- Train and evaluate machine learning models for accurate classification.
+- Compare models based on accuracy, precision, recall, and F1-score.
 
-License
-This repository is licensed under the MIT License.
+## 🧪 Dataset
+
+- **Source:** Public dataset certified by Johns Hopkins Medicine.
+- **Shape:** 541 samples, 44 features (both continuous and categorical).
+- **Label:** `PCOS (Y/N)` encoded as 1 (positive), 0 (negative).
+
+## 🔍 Methods
+
+- **Preprocessing:** Handling missing values, feature normalization, categorical encoding.
+- **Exploratory Analysis:** Histograms, box plots, heatmaps, and VIF for multicollinearity check.
+- **Feature Selection:** LassoCV used to identify most relevant features.
+- **Models Used:**
+  - Decision Tree
+  - Random Forest
+  - Logistic Regression
+  - LDA / QDA
+  - K-Nearest Neighbor (KNN)
+  - Support Vector Machine (SVM)
+  - Gaussian Naive Bayes
+  - Gradient Boosting
+
+## 📊 Results
+
+| Model              | Accuracy | F1-Score | Precision | Recall |
+|-------------------|----------|----------|-----------|--------|
+| Decision Tree      | 0.8241   | 0.6667   | 0.6786    | 0.6552 |
+| Random Forest      | 0.8519   | 0.7143   | 0.7407    | 0.6897 |
+| Logistic Regression| 0.8519   | 0.7143   | 0.7407    | 0.6897 |
+| SVM                | 0.8704   | 0.7500   | 0.7778    | 0.7241 |
+| KNN                | **0.8796** | **0.7547** | **0.8333** | 0.6897 |
+| GaussianNB         | 0.7870   | 0.6900   | 0.5652    | **0.8966** |
+| Gradient Boosting  | 0.8519   | 0.7037   | 0.7600    | 0.6552 |
+
+> **Note:** KNN achieved the highest overall accuracy, while GaussianNB had the best recall.
+
+## ✅ Key Findings
+
+- KNN and SVM performed best in terms of balanced performance.
+- Age and follicle count (L & R) were strong indicators of PCOS.
+- Features like BMI, weight, and blood group were less relevant based on Lasso regression.
+
+
+## 📌 Dependencies
+
+- Python (3.8+)
+- NumPy, Pandas
+- scikit-learn
+- Seaborn, Matplotlib
+
+Install with:
+```bash
+pip install -r requirements.txt
+
 
 We hope you find this repository valuable and engaging as you explore the fascinating world of machine learning. Happy learning and coding!
